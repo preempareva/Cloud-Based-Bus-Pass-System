@@ -1,13 +1,13 @@
 <?php
 	include('connection.php');
 	if(isset($_POST['id'])){
-		$id = $_POST['id'];
-        $amt = $_POST['amt'];
+		$id = mysqli_real_escape_string($conn, $_POST['id']);
+        $amt = mysqli_real_escape_string($conn, $_POST['amt']);
 		
-        $paid = mysql_query("UPDATE pass SET paid = paid + '$amt' WHERE id = '$id'");
+        $paid = mysqli_query($conn, "UPDATE pass SET paid = paid + '$amt' WHERE id = '$id'");
 		
-		$result = mysql_query("select * from pass where id = '$id'");
-		$row = mysql_fetch_array($result);
+		$result = mysqli_query($conn, "select * from pass where id = '$id'");
+		$row = mysqli_fetch_array($result);
     }
 ?>
 <!DOCTYPE html>

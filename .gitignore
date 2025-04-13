@@ -1,0 +1,38 @@
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Dependencies
+/vendor/
+/node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+
+# Build output
+/dist/
+/build/
+
+# Cache
+.cache/
+
+# Database
+*.sqlite
+*.db
+
+# Temporary files
+tmp/
+temp/ 

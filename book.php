@@ -1,7 +1,7 @@
 <?php
     include('connection.php');
     $sql = "select name from destination";
-    $result = mysql_query($sql);
+    $result = mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -142,7 +142,7 @@
                   <label class="text-black" for="destination">Destination</label> 
                   <select type="text" id="text" name="dest" class="form-control">
                       <?php
-                        while($row = mysql_fetch_array($result)){
+                        while($row = mysqli_fetch_array($result)){
                             echo "<option value='" . $row['name'] . "'>" . $row['name'] . "</option>";
                         }
                       ?>

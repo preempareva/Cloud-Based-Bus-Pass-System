@@ -1,10 +1,10 @@
 <?php
     include("connection.php");
     if(isset($_POST['pass_id'])){
-        $id = $_POST['pass_id'];
-        $password = $_POST['password'];
-        $result = mysql_query("select * from pass where id = '$id'");
-		$row = mysql_fetch_array($result);
+        $id = mysqli_real_escape_string($conn, $_POST['pass_id']);
+        $password = mysqli_real_escape_string($conn, $_POST['password']);
+        $result = mysqli_query($conn, "select * from pass where id = '$id'");
+		$row = mysqli_fetch_array($result);
         if($row['password']!=$password)
         {
             header("Location: manage2.php");

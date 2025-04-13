@@ -2,18 +2,18 @@
     include('connection.php');
 	date_default_timezone_set("Asia/Kolkata");
     if(isset($_POST['name'])){
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $contact = $_POST['contact'];
-        $date = $_POST['date'];
-        $dest = $_POST['dest'];
-        $password = $_POST['password'];
+        $name = mysqli_real_escape_string($conn, $_POST['name']);
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $contact = mysqli_real_escape_string($conn, $_POST['contact']);
+        $date = mysqli_real_escape_string($conn, $_POST['date']);
+        $dest = mysqli_real_escape_string($conn, $_POST['dest']);
+        $password = mysqli_real_escape_string($conn, $_POST['password']);
      	
-        $query = mysql_query("insert into pass(name, email, contact, date, dest, password) values ('$name', '$email', '$contact', '$date', '$dest', '$password')");
-		$lid = mysql_insert_id();
+        $query = mysqli_query($conn, "insert into pass(name, email, contact, date, dest, password) values ('$name', '$email', '$contact', '$date', '$dest', '$password')");
+		$lid = mysqli_insert_id($conn);
 		
 		$nod = round((strtotime($date) - time())/(60*60*24))+1;
-		$result = mysql_query("select price from destination where name = '$dest'");
+		$result = mysqli_query($conn, "select price from destination where name = '$dest'");
     }
 ?>
 
@@ -215,7 +215,7 @@ span.price {
               <i class="fa fa-cc-discover" style="color:orange;"></i>
 			  <div>Rs. 
 				<?php
-					$price = mysql_fetch_assoc($result)['price'];
+					$price = mysqli_fetch_assoc($result)['price'];
 					$amt = $price * $nod;
 					echo $amt;
 				?>

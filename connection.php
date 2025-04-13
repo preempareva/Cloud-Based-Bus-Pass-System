@@ -1,7 +1,12 @@
 <?php  
-     	$servername = "localhost";  
-       	$username = "root";  
-       	$password = "usbw";  
-       	$conn = mysql_connect ($servername , $username , $password) or die("unable to connect to host");  
-	$sql = mysql_select_db ('travel',$conn) or die("unable to connect to database"); 
+    $servername = "localhost";  
+    $username = "root";  
+    $password = "";  
+    $database = "travel";
+
+    $conn = mysqli_connect($servername, $username, $password, $database);
+    
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
 ?>
