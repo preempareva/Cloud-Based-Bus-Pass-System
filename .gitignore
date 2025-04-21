@@ -1,19 +1,31 @@
-# IDE and Editor files
-.vscode/
+# Docker volumes
+mysql_data/
+
+# Environment files
+.env
+
+# IDE files
 .idea/
-*.swp
-*.swo
+.vscode/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
 # System Files
-.DS_Store
-Thumbs.db
+*.swp
+*.swo
 
 # Dependencies
 /vendor/
 /node_modules/
 
 # Environment files
-.env
 .env.local
 .env.*.local
 

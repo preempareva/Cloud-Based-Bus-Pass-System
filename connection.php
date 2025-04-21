@@ -1,8 +1,8 @@
 <?php  
-    $servername = "localhost";  
-    $username = "root";  
-    $password = "";  
-    $database = "travel";
+    $servername = getenv('DB_HOST') ?: "localhost";  
+    $username = getenv('DB_USER') ?: "root";  
+    $password = getenv('DB_PASSWORD') ?: "";  
+    $database = getenv('DB_NAME') ?: "travel";
 
     $conn = mysqli_connect($servername, $username, $password, $database);
     
